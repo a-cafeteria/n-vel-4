@@ -1,14 +1,19 @@
 #include <bits/stdc++.h>
 
+#define MAX 1000
+
 using namespace std;
+
 //Explicação das variáveis: tamanho -> é o tamanho da matriz
 // maior -> salva a maior soma de valores
 // casas -> matriz que guarda o valor de cada casa
 // somasHorizontais-> vetor que salva a soma total de cada uma das linhas. Usando a imagem do enunciado como exemplo, somasHorizontais[0] seria igual a 25
 // somasVerticais -> vetor que salva a soma total de cada uma das colunas. Usando a imagem como exemplo, somasVerticais[4] seria igual a 21
-// somaAtual: salva a soma total para cada posição que pode ser ocupada pela torre. Na imagem do enunciado, as casas em azul representam a soma atual para somasVerticais[3] e somasHorizontais[3].
+// somaAtual: salva a soma total para cada posição que pode ser ocupada pela torre. Na imagem do enunciado, as ///casas em azul representam a soma atual para somasVerticais[3] e somasHorizontais[3].
+//OBS:como estou incrementando os elementos de somasVerticais e somasHorizontais, devo inicializar os vetores como zero. Caso isso não seja feito, valores aleatórios serão assumidos.
+
 int main(int argc, char const *argv[]) {
-  int tamanho, maior=0, casas[1000][1000], somasHorizontais[1000]={0},somasVerticais[1000]={0}, somaAtual;
+  int tamanho, maior=0, casas[MAX][MAX], somasHorizontais[MAX],somasVerticais[MAX], somaAtual;
   cin>>tamanho;
   for(int i=0;i<tamanho;i++){//i representa as linhas
     for(int j=0;j<tamanho;j++){//j representa as colunas
@@ -23,6 +28,6 @@ int main(int argc, char const *argv[]) {
         if(somaAtual>maior)maior=somaAtual;//comparação para verificar se a somaAtual é a maior
       }
     }
-    cout<<maior;
+    cout<<maior;//imprimo a maior soma possível
   return 0;
 }
